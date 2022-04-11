@@ -33,6 +33,8 @@ public class App {
     playlist2.addSong(song3);
     playlist2.addSong(song4);
     System.out.println(playlist2.playlistInf());
+    playlist2.removeSong(song1);
+    System.out.println(playlist2.playlistInf());
 
 
   }

@@ -39,8 +39,33 @@ public class Playlist {
     }
   }
 
-  public void removeSong(Song song) {
-    // todo : implement it later
+  public boolean removeSong(Song song) {
+    if (song == null){
+      return false;
+    }
+    int findIndex = -1;
+    for (int i = 0 ; i < songs.length ; i++){
+      if (songs[i].getId() == song.getId()){
+        findIndex = i;
+        break;
+      }
+    }
+
+    if (findIndex == -1){
+      return false;
+    }
+    Song[] newArray = new Song[songs.length -1];
+    int sequencer = 0;
+    for (int i = 0; i < songs.length ; i++){
+      if (i == findIndex){
+        continue;
+      }
+      newArray[sequencer++] = songs[i];
+    }
+    songs = newArray;
+
+    return true;
+
   }
 
   public String playlistInf(){
